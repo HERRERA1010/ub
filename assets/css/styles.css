@@ -11,7 +11,7 @@
             font-family: 'Poppins', sans-serif;
             background-color: var(--light);
             color: var(--primary);
-            overflow-x: hidden;
+            overflow-x: hidden !important;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -24,6 +24,7 @@
             background-color: var(--primary) !important;
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1100; /* asegurar que la navbar quede por encima del hero */
         }
         
         .navbar-brand {
@@ -31,6 +32,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.8rem;
+            letter-spacing: 0.5px;
         }
         
         .nav-link {
@@ -64,29 +66,20 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            letter-spacing: 1px;
+            margin-left: 1.5%;
         }
 
-        /* Collapse overlay on small screens to avoid pushing layout and causing overflow */
-        @media (max-width: 991px) {
-            .navbar-collapse {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, var(--primary), var(--secondary));
-                padding: 0.75rem 1rem;
-                z-index: 1050;
-                border-bottom-left-radius: 8px;
-                border-bottom-right-radius: 8px;
-                max-height: calc(100vh - 56px);
-                overflow-y: auto;
-            }
-
-            /* Make sure toggler stays visible */
-            .navbar-toggler { z-index: 1060; }
+        /* Keep navbar layout flexible and avoid forcing an absolute overlay for collapse.
+           Use Bootstrap's default collapse behavior to ensure the toggler and JS work correctly. */
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
         }
 
-        /* Additional safety: prevent horizontal overflow coming from navbar */
+        /* Prevent horizontal overflow coming from the navbar */
         .navbar { overflow-x: hidden; }
         
         /* Hero Section */
@@ -97,7 +90,9 @@
             position: relative; /* hace que .hero-bg se posicione respecto al hero */
             display: flex;
             align-items: center;
-            padding: 2rem 0;
+            justify-content: center; /* centrar horizontalmente el contenido del hero */
+            flex-direction: column; /* apilar contenido (texto encima, logo debajo) */
+            padding: 0; /* removido padding para que la imagen ocupe el borde sin espacio extra */
         }
 
                 /* Contenedor de fondo del hero (una sola imagen) */
@@ -108,7 +103,6 @@
                     z-index: 0;
                     pointer-events: none;
                 }
-
                 .hero-bg__single {
                     position: absolute;
                     inset: 0;
@@ -251,15 +245,34 @@
         }
         
         /* Services Section */
-        .service-card {
-            background: white;
+        /* Services Section - inverted colors: dark background, light cards */
+        #servicios {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light);
+        }
+
+        #servicios .section-title h2 {
+            /* keep heading readable on dark background */
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+            color: var(--light);
+            background: transparent; /* título con fondo transparente */
+            background-color: transparent;
+            display: inline-block; /* mantener ancho del texto y facilitar overlays */
+        }
+
+        /* Cards inverted to dark inside the dark services section */
+        #servicios .service-card {
+            background: linear-gradient(135deg, rgba(34,40,49,0.95), rgba(57,62,70,0.95));
+            color: var(--light);
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.45);
             transition: all 0.3s ease;
             height: 100%;
-            border: 1px solid rgba(57, 62, 70, 0.1);
+            border: 1px solid rgba(255,255,255,0.04);
         }
         
         .service-card:hover {
@@ -278,8 +291,14 @@
             margin: 0 auto 1.5rem;
         }
         
-        .service-icon i {
-            color: var(--accent);
+        /* On inverted services section make the icon use accent on light card */
+        /* Icon: make it stand out on dark card (light circle with dark icon) */
+        #servicios .service-icon {
+            background: var(--light);
+        }
+
+        #servicios .service-icon i {
+            color: var(--primary);
             font-size: 2rem;
         }
         
@@ -289,6 +308,27 @@
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Make contact form narrower on desktop and smaller button */
+        #contacto .contact-form {
+            max-width: 700px; /* not so wide on large screens */
+            margin: 0 auto; /* center inside column */
+        }
+
+        @media (min-width: 1200px) {
+            #contacto .contact-form {
+                max-width: 640px; /* even narrower on very large screens */
+            }
+        }
+
+        /* Smaller button specifically for contact section */
+        #contacto .btn-accent {
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            border-radius: 10px;
+            width: auto;
+            display: inline-block;
         }
         
         .form-control {
