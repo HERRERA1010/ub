@@ -10,7 +10,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--light);
     color: var(--primary);
-    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,13 +53,6 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 211, 105, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Navbar mobile overflow fixes */
-.navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-}
 
 .navbar-brand {
     max-width: 55%;
@@ -69,18 +63,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 1.5%;
 }
 
-/* Keep navbar layout flexible and avoid forcing an absolute overlay for collapse.
-           Use Bootstrap's default collapse behavior to ensure the toggler and JS work correctly. */
-.navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-}
 
-/* Prevent horizontal overflow coming from the navbar */
-.navbar { overflow-x: hidden; }
-        
+
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -102,17 +87,16 @@ h1, h2, h3, h4, h5, h6 {
             z-index: 0;
             pointer-events: none;
         }
-        .hero-bg__single {
+        .hero-video {
             position: absolute;
-            inset: 0;
-            background-image: url('../img/uli1.jpeg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(5px) saturate(80%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.7) saturate(1.2);
             opacity: 0.85;
-            transform: scale(1.03);
-            transition: transform 0.6s ease, opacity 0.4s ease;
-            mix-blend-mode: screen;
         }
 
         /* Asegurar que el contenido del hero quede encima de la capa de fondo */
@@ -123,11 +107,10 @@ h1, h2, h3, h4, h5, h6 {
             z-index: 2;
         }
 
-        /* Versión móvil: ocultar las capas para rendimiento y legibilidad */
+        /* Versión móvil: ajustes responsivos */
         @media (max-width: 768px) {
-            .hero-bg__layer { display: none; }
             .hero { min-height: 70vh; }
-            .hero-image { width: 320px; }
+            .hero-image { width: 315px; }
         }
         
         .hero-content {
@@ -157,39 +140,11 @@ h1, h2, h3, h4, h5, h6 {
                     box-shadow: 0 18px 40px rgba(0,0,0,0.45);
                 }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .btn-accent {
-            background-color: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 211, 105, 0.3);
-        }
-        
-        .btn-accent:hover {
-            background-color: #ffc84d;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 211, 105, 0.4);
-        }
+
         
         /* Section Styling */
         section {
-            padding: 5rem 0;
+            padding: 3em 0;
         }
         
         .section-title {
@@ -221,37 +176,92 @@ h1, h2, h3, h4, h5, h6 {
         }
         
         /* Experience Section */
-        .experience-item {
-            background: white;
-            border-radius: 15px;
+        .experiencia-section {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .experiencia-card {
+            border: none;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .experiencia-img {
+            max-height: 600px;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            filter: brightness(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .experiencia-content {
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(57, 62, 70, 0.1);
         }
-        
-        .experience-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .experience-year {
+
+        .experiencia-content h2 {
             color: var(--accent);
-            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .experiencia-content p {
+            color: var(--light);
             font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .experiencia-img {
+                max-height: 500px;
+            }
+            .experiencia-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .experiencia-img {
+                max-height: 400px;
+            }
+            .experiencia-content h2 {
+                font-size: 1.8rem;
+            }
+            .experiencia-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .experiencia-img {
+                max-height: 300px;
+            }
+            .experiencia-content {
+                padding: 1rem;
+            }
+            .experiencia-content h2 {
+                font-size: 1.5rem;
+            }
         }
         
-        /* Services Section */
-        /* Services Section - inverted colors: dark background, light cards */
+     
         #servicios {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--light);
         }
 
         #servicios .section-title h2 {
-            /* keep heading readable on dark background */
+          
             -webkit-background-clip: unset;
             -webkit-text-fill-color: unset;
             background-clip: unset;
@@ -376,14 +386,6 @@ h1, h2, h3, h4, h5, h6 {
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
             section {
                 padding: 3rem 0;
             }
@@ -394,17 +396,8 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
             .navbar-brand {
                 font-size: 1.5rem;
-            }
-
-            .btn-accent {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
             }
         }
 
