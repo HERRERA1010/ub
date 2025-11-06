@@ -18,57 +18,16 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
 }
-
-/* Navbar */
-.navbar {
-    background-color: var(--primary) !important;
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1100; /* asegurar que la navbar quede por encima del hero */
-}
-
-.navbar-brand {
-    color: var(--accent) !important;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 0.5px;
-}
-
-.nav-link {
-    color: var(--light) !important;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--accent) !important;
-}
-
-.navbar-toggler {
-    border-color: var(--accent);
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 211, 105, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-
 .navbar-brand {
     max-width: 55%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    letter-spacing: 1px;
     margin-left: 1.5%;
 }
 .lts{
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
-
-
-
-
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -98,8 +57,8 @@ h1, h2, h3, h4, h5, h6 {
             height: 100%;
             object-fit: cover;
             object-position: center;
-            filter: brightness(0.7) saturate(1.2);
-            opacity: 0.85;
+            filter: brightness(0.3) saturate(1.2);
+            opacity: 0.6;
         }
 
         /* Asegurar que el contenido del hero quede encima de la capa de fondo */
