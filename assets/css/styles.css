@@ -8,8 +8,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--light);
-    color: var(--primary);
+    background-color: var(--primary);
+    
     margin: 0;
     padding: 0;
 }
