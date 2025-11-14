@@ -3,245 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Efecto Hover Suave con Keyframes</title>
+    <title>Servicios - Negocio Minimalista Oscuro</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #818cf8;
+            --primary-dark: #6366f1;
+            --secondary: #1f2937;
+            --dark: #f9fafb;
+            --light: #111827;
+            --gray: #d1d5db;
+            --gray-light: #9ca3af;
+            --border-radius: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.25);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--gray);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            padding: 40px 0;
         }
-
-        .title {
-            color: white;
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--dark);
             font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .comparison-container {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px 30px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .nav-title {
-            color: #333;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .nav-list {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            font-size: 18px;
-            padding: 10px 0;
-            display: block;
-            text-align: center;
-        }
-
-        /* Efecto BRUSCO (sin transición suave) */
-        .brusco:hover {
-            transform: scale(1.3);
-            /* Sin transition, por lo que es brusco */
-        }
-
-        /* Efecto SUAVE con transition */
-        .suave-transition {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .suave-transition:hover {
-            transform: scale(1.3);
-        }
-
-        /* Efecto con KEYFRAMES - Animación personalizada */
-        .keyframes-effect {
-            animation: none;
-        }
-
-        .keyframes-effect:hover {
-            animation: smoothScale 0.4s ease-in-out forwards;
-        }
-
-        /* Definición del keyframe */
-        @keyframes smoothScale {
-            0% {
-                transform: scale(1);
-                letter-spacing: 0px;
-            }
-            50% {
-                transform: scale(1.2);
-                letter-spacing: 1px;
-            }
-            100% {
-                transform: scale(1.3);
-                letter-spacing: 2px;
-            }
-        }
-
-        /* Efecto SUPER SUAVE con cubic-bezier */
-        .super-suave {
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .super-suave:hover {
-            transform: scale(1.3);
-        }
-
-        /* Efecto con múltiples propiedades */
-        .multi-effect {
-            transition: all 0.4s ease;
-        }
-
-        .multi-effect:hover {
-            transform: scale(1.3) translateY(-5px);
-            color: #ff6b6b;
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .explanation {
-            color: white;
-            background: rgba(0,0,0,0.2);
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 800px;
-            margin-top: 30px;
+        
+        .section-title p {
+            color: var(--gray-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
             line-height: 1.6;
         }
-
-        .explanation h3 {
-            margin-bottom: 15px;
-            color: #ff6b6b;
+        
+        .service-card {
+            background: #1e293b;
+            border: 1px solid #374151;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            overflow: hidden;
+            position: relative;
         }
-
-        .explanation code {
-            background: rgba(0,0,0,0.3);
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #4ecdc4;
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
-
-        .explanation ul {
-            padding-left: 20px;
-            margin-top: 10px;
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
         }
-
-        .explanation li {
-            margin-bottom: 8px;
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(129, 140, 248, 0.3);
+        }
+        
+        .card-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .card-body {
+            padding: 32px;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.375rem;
+            margin-bottom: 16px;
+        }
+        
+        .card-text {
+            color: var(--gray-light);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .card-footer {
+            background: transparent;
+            border: none;
+            padding: 0 32px 32px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .card-body {
+                padding: 24px 20px;
+            }
+            
+            .card-footer {
+                padding: 0 20px 24px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding: 20px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 class="title">Efectos Hover para Texto - Comparación</h1>
-    
-    <div class="comparison-container">
-        <div class="navbar">
-            <div class="nav-title">Efecto BRUSCO</div>
-            <ul class="nav-list">
-                <li><a href="#" class="nav-link brusco">Inicio</a></li>
-                <li><a href="#" class="nav-link brusco">Servicios</a></li>
-                <li><a href="#" class="nav-link brusco">Contacto</a></li>
-            </ul>
+    <div class="container">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Descubre cómo podemos transformar tu negocio con soluciones innovadoras y personalizadas para cada necesidad.</p>
         </div>
-
-        <div class="navbar">
-            <div class="nav-title">Transición Suave</div>
-            <ul class="nav-list">
-                <li><a href="#" class="nav-link suave-transition">Inicio</a></li>
-                <li><a href="#" class="nav-link suave-transition">Servicios</a></li>
-                <li><a href="#" class="nav-link suave-transition">Contacto</a></li>
-            </ul>
-        </div>
-
-        <div class="navbar">
-            <div class="nav-title">Keyframes</div>
-            <ul class="nav-list">
-                <li><a href="#" class="nav-link keyframes-effect">Inicio</a></li>
-                <li><a href="#" class="nav-link keyframes-effect">Servicios</a></li>
-                <li><a href="#" class="nav-link keyframes-effect">Contacto</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="comparison-container">
-        <div class="navbar">
-            <div class="nav-title">Super Suave</div>
-            <ul class="nav-list">
-                <li><a href="#" class="nav-link super-suave">Inicio</a></li>
-                <li><a href="#" class="nav-link super-suave">Servicios</a></li>
-                <li><a href="#" class="nav-link super-suave">Contacto</a></li>
-            </ul>
-        </div>
-
-        <div class="navbar">
-            <div class="nav-title">Multi Efecto</div>
-            <ul class="nav-list">
-                <li><a href="#" class="nav-link multi-effect">Inicio</a></li>
-                <li><a href="#" class="nav-link multi-effect">Servicios</a></li>
-                <li><a href="#" class="nav-link multi-effect">Contacto</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="explanation">
-        <h3>¿Cómo hacer transiciones suaves con CSS?</h3>
-        <p>Para evitar efectos bruscos, usa <code>transition</code> o <code>@keyframes</code>:</p>
         
-        <ul>
-            <li><strong>Method 1 - Transition simple:</strong><br>
-                <code>.elemento { transition: transform 0.3s ease; }</code><br>
-                <code>.elemento:hover { transform: scale(1.3); }</code>
-            </li>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-rocket"></i>
+                        </div>
+                        <h3 class="card-title">Desarrollo Web</h3>
+                        <p class="card-text">Creamos sitios web modernos, responsivos y optimizados para SEO que impulsan tu presencia digital y generan conversiones.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Más información</button>
+                    </div>
+                </div>
+            </div>
             
-            <li><strong>Method 2 - Keyframes personalizados:</strong><br>
-                <code>@keyframes smoothScale {<br>
-                &nbsp;&nbsp;0% { transform: scale(1); }<br>
-                &nbsp;&nbsp;100% { transform: scale(1.3); }<br>
-                }</code><br>
-                <code>.elemento:hover { animation: smoothScale 0.4s ease forwards; }</code>
-            </li>
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h3 class="card-title">Diseño UI/UX</h3>
+                        <p class="card-text">Diseñamos experiencias de usuario intuitivas y atractivas que conectan con tu audiencia y mejoran la interacción con tu marca.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Más información</button>
+                    </div>
+                </div>
+            </div>
             
-            <li><strong>Timing functions útiles:</strong><br>
-                <code>ease</code>, <code>ease-in-out</code>, <code>cubic-bezier(0.68,-0.55,0.265,1.55)</code>
-            </li>
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3 class="card-title">Apps Móviles</h3>
+                        <p class="card-text">Desarrollamos aplicaciones móviles nativas e híbridas para iOS y Android, con alto rendimiento y diseño atractivo.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Más información</button>
+                    </div>
+                </div>
+            </div>
             
-            <li><strong>Propiedades que puedes animar:</strong><br>
-                <code>transform</code>, <code>color</code>, <code>opacity</code>, <code>letter-spacing</code>, etc.
-            </li>
-        </ul>
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h3 class="card-title">Marketing Digital</h3>
+                        <p class="card-text">Estrategias de marketing digital integradas que aumentan tu visibilidad, atraen leads calificados y maximizan tu ROI.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Más información</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h3 class="card-title">Seguridad IT</h3>
+                        <p class="card-text">Protegemos tu infraestructura digital con soluciones avanzadas de ciberseguridad y cumplimiento normativo.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Más información</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-cloud-check"></i>
+                        </div>
+                        <h3 class="card-title">Cloud Solutions</h3>
+                        <p class="card-text">Migración y gestión de infraestructura en la nube con alta disponibilidad, escalabilidad y reducción de costos.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Más información</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
