@@ -19,24 +19,26 @@
     <link rel="stylesheet" href="assets/css/servicios.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand lts" href="#inicio">UB</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav ms-lg-auto text-end">
+                    <li class="nav-item ">
                         <a class="nav-link super-suave" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link super-suave" href="#experiecia">Experiencia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link super-suave" href="assets/pages/servicios.html">Servicios</a>
+                        <a class="nav-link super-suave" href="assets/pages/serviciosTest.html">Servicios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link super-suave" href="#contacto">Contacto</a>
@@ -61,14 +63,17 @@
         </div>
     </section>
     <!-- SERVICIOS -->
-     <section class="titulos-generales bg-custom"><h2 class="text-white text-center">NUESTROS SERVICIOS</h2></section>
+    <section class="titulos-generales bg-custom">
+        <h2 class="text-white text-center">NUESTROS SERVICIOS</h2>
+    </section>
     <div class="row row-cols-1 row-cols-md-2 g-4 bg-custom mb-4" id="servicios">
-        <div class="col">
-            <div class="card card-max-width">
+        <div class="col bg-custom">
+            <div class="card card-max-width bg-custom">
                 <img src="assets/img/WhatsApp Image 2025-10-31 at 4.07.48 PM (1).jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-custom2">
-                    <h5 class="card-title text-white">Card title</h5>
-                    <p class="card-text text-white">This is a longer card with supporting text below as a natural
+                <div class="card-body bg-custom">
+                    <h5 class="card-title text-white">SERVICIO DE MIXOLOGÍA</h5>
+                    <p class="card-text text-white text-start">This is a longer card with supporting text below as a
+                        natural
                         lead-in to additional content. This content is a little bit longer.</p>
                 </div>
             </div>
@@ -77,33 +82,26 @@
             <div class="card card-max-width">
                 <img src="assets/img/WhatsApp Image 2025-10-31 at 4.07.48 PM (2).jpeg" class="card-img-top" alt="...">
                 <div class="card-body bg-custom2 text-white">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    <h5 class="card-title text-white ">FLAIR EXPERIENCE</h5>
+                    <p class="card-text text-start">This is a longer card with supporting text below as a natural
+                        lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col m-auto mt-4">
             <div class="card card-max-width">
                 <img src="assets/img/WhatsApp Image 2025-10-31 at 4.07.48 PM (3).jpeg" ..." class="card-img-top"
                     alt="...">
                 <div class="card-body bg-custom2 text-white addEventListener">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    <h5 class="card-title text-white">ASESORÍA DE BAR</h5>
+                    <p class="card-text text-start">This is a longer card with supporting text below as a natural
+                        lead-in to
                         additional content.</p>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card card-max-width">
-                <img src="assets/img/WhatsApp Image 2025-10-31 at 4.07.48 PM (4).jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-custom2 text-white">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text ">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
+
     </div> <!-- final de div global de seccion servicios-->
     <!-- FINAL SERVICIOS -->
     <!-- EXPERIENCIA -->
@@ -155,7 +153,6 @@
             easing: 'ease-out-cubic',
             once: true
         });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
