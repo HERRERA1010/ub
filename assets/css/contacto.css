@@ -1,0 +1,212 @@
+
+        :root {
+            --primary: #222831;
+            --secondary: #393e46;
+            --accent: #ffd369;
+            --light: #eeeeee;
+            --dark: #222831;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        main {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        
+        .contact-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(1.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .contact-header {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            transition: transform 0.2s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(3px);
+        }
+        
+        .contact-icon {
+            background: var(--accent);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            flex-shrink: 0;
+            align-self: flex-start;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 211, 105, 0.4);
+            background: var(--light);
+            color: var(--primary);
+        }
+        
+        .accent-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .contact-content {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Tablet y desktop */
+        @media (min-width: 768px) {
+            .contact-card {
+                padding: 1rem;
+            }
+            
+            .contact-image {
+                height: 400px;
+                margin-bottom: 0;
+            }
+            
+            .contact-header {
+                text-align: left;
+                font-size: 2.2rem;
+            }
+            
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+        
+        /* Desktop grande */
+        @media (min-width: 992px) {
+            .contact-card {
+                padding: 1rem;
+            }
+            
+            .contact-image {
+                height: 450px;
+            }
+        }
+        
+        /* Estilos específicos para pantallas muy pequeñas */
+        @media (max-width: 360px) {
+            .contact-card {
+                padding: 1rem;
+            }
+            
+            .contact-image {
+                height: 250px;
+            }
+            
+            .contact-header {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-item {
+                margin-bottom: 1rem;
+            }
+            
+            .contact-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .contact-content {
+                font-size: 0.9rem;
+            }
+        }

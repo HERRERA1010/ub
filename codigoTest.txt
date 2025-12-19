@@ -1,295 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - Negocio Minimalista Oscuro</title>
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #818cf8;
-            --primary-dark: #6366f1;
-            --secondary: #1f2937;
-            --dark: #f9fafb;
-            --light: #111827;
-            --gray: #d1d5db;
-            --gray-light: #9ca3af;
-            --border-radius: 16px;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.25);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--gray);
-            min-height: 100vh;
-            padding: 40px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .section-title p {
-            color: var(--gray-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        .service-card {
-            background: #1e293b;
-            border: 1px solid #374151;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition);
-        }
-        
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .card-icon {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            transition: var(--transition);
-        }
-        
-        .service-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 20px rgba(129, 140, 248, 0.3);
-        }
-        
-        .card-icon i {
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .card-body {
-            padding: 32px;
-            text-align: center;
-        }
-        
-        .card-title {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 1.375rem;
-            margin-bottom: 16px;
-        }
-        
-        .card-text {
-            color: var(--gray-light);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-        
-        .card-footer {
-            background: transparent;
-            border: none;
-            padding: 0 32px 32px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border: none;
-            border-radius: 30px;
-            padding: 10px 24px;
-            font-weight: 600;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .card-body {
-                padding: 24px 20px;
-            }
-            
-            .card-footer {
-                padding: 0 20px 24px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            body {
-                padding: 20px 0;
-            }
-            
-            .section-title {
-                margin-bottom: 40px;
-            }
-            
-            .section-title h2 {
-                font-size: 1.75rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios de Mixología</title>
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- AOS para animaciones -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #222831;
+      --secondary: #393e46;
+      --accent: #ffd369;
+      --light: #eeeeee;
+      --dark: #222831;
+    }
+
+    body {
+      background-color: var(--primary);
+      color: var(--light);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .section-title {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+
+    .service-card {
+      background-color: var(--secondary);
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-img-top {
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .card-body {
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .card-title {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      font-size: 1.4rem;
+    }
+
+    .card-text {
+      color: var(--light);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn-tab {
+      background-color: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.5rem 1.4rem;
+      border: none;
+      border-radius: 8px;
+      margin-top: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.25s ease;
+    }
+
+    .btn-tab:hover {
+      background-color: #ffc547;
+      color: var(--primary);
+    }
+
+    [data-aos] {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="section-title">
-            <h2>Nuestros Servicios</h2>
-            <p>Descubre cómo podemos transformar tu negocio con soluciones innovadoras y personalizadas para cada necesidad.</p>
-        </div>
-        
-        <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="card-body">
-                        <div class="card-icon">
-                            <i class="bi bi-rocket"></i>
-                        </div>
-                        <h3 class="card-title">Desarrollo Web</h3>
-                        <p class="card-text">Creamos sitios web modernos, responsivos y optimizados para SEO que impulsan tu presencia digital y generan conversiones.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary">Más información</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="card-body">
-                        <div class="card-icon">
-                            <i class="bi bi-palette"></i>
-                        </div>
-                        <h3 class="card-title">Diseño UI/UX</h3>
-                        <p class="card-text">Diseñamos experiencias de usuario intuitivas y atractivas que conectan con tu audiencia y mejoran la interacción con tu marca.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary">Más información</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="card-body">
-                        <div class="card-icon">
-                            <i class="bi bi-phone"></i>
-                        </div>
-                        <h3 class="card-title">Apps Móviles</h3>
-                        <p class="card-text">Desarrollamos aplicaciones móviles nativas e híbridas para iOS y Android, con alto rendimiento y diseño atractivo.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary">Más información</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Card 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="card-body">
-                        <div class="card-icon">
-                            <i class="bi bi-graph-up"></i>
-                        </div>
-                        <h3 class="card-title">Marketing Digital</h3>
-                        <p class="card-text">Estrategias de marketing digital integradas que aumentan tu visibilidad, atraen leads calificados y maximizan tu ROI.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary">Más información</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Card 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="card-body">
-                        <div class="card-icon">
-                            <i class="bi bi-shield-lock"></i>
-                        </div>
-                        <h3 class="card-title">Seguridad IT</h3>
-                        <p class="card-text">Protegemos tu infraestructura digital con soluciones avanzadas de ciberseguridad y cumplimiento normativo.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary">Más información</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Card 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="card-body">
-                        <div class="card-icon">
-                            <i class="bi bi-cloud-check"></i>
-                        </div>
-                        <h3 class="card-title">Cloud Solutions</h3>
-                        <p class="card-text">Migración y gestión de infraestructura en la nube con alta disponibilidad, escalabilidad y reducción de costos.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary">Más información</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap 5.3 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Nuestros Servicios de Mixología</h2>
+      
+      <!-- Servicio 1 -->
+      <div class="row">
+        <div class="col-12" data-aos="fade-up">
+          <div class="service-card">
+            <img src="https://picsum.photos/id/1080/800/600" class="card-img-top" alt="Cócteles a Medida">
+            <div class="card-body">
+              <h3 class="card-title">Cócteles a Medida</h3>
+              <p class="card-text">
+                Nuestros expertos diseñan creaciones únicas inspiradas en tus gustos, eventos o concepto de marca. Cada trago cuenta una historia.
+              </p>
+              <button class="btn-tab">Descubrir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="row">
+        <div class="col-12" data-aos="fade-up" data-aos-delay="150">
+          <div class="service-card">
+            <img src="https://picsum.photos/id/103/800/600" class="card-img-top" alt="Clases de Mixología">
+            <div class="card-body">
+              <h3 class="card-title">Clases de Mixología</h3>
+              <p class="card-text">
+                Aprende técnicas profesionales, manejo de licores, equilibrio de sabores y presentación de cócteles con nuestros bartenders expertos.
+              </p>
+              <button class="btn-tab">Reservar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="row">
+        <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <img src="https://picsum.photos/id/274/800/600" class="card-img-top" alt="Asesoría en Cartas de Bar">
+            <div class="card-body">
+              <h3 class="card-title">Asesoría en Cartas de Bar</h3>
+              <p class="card-text">
+                Optimizamos tu carta de bebidas con opciones innovadoras, rentables y alineadas con la identidad de tu establecimiento.
+              </p>
+              <button class="btn-tab">Consultar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
+
 </body>
 </html>
-

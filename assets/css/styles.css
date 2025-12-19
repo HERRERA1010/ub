@@ -355,7 +355,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
   section {
-    padding: 3rem 0;
+    padding: 1rem 0;
   }
 
   .section-title h2 {
