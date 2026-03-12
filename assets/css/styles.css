@@ -1,6 +1,6 @@
 :root {
   --primary: #222831;
-  --secondary: #393e46;
+  --secondary: #222831;
   --accent: #ffd369;
   --light: #eeeeee;
   --dark: #222831;
@@ -16,7 +16,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
   margin: 0;
   padding: 0;
 }
